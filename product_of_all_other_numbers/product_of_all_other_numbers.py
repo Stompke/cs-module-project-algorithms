@@ -6,9 +6,25 @@ def product_of_all_other_numbers(arr):
     # Your code here
     
     total = 1
+    new_arr = []
+    # remove first number and save it
+    last_num = arr.pop(0)
+    for i in range(len(arr)):
+        # get multiplied total of all numbers left
+        total = total * arr[i]
+    # append that total to new array
+    new_arr.append(total)
+    # return new_arr
     for i in range(0, len(arr)):
-        new_arr = arr.pop(i)
-        arr[i] = total * arr[i]
+        arr.append(last_num)
+        print('append: ', last_num)
+        last_num = arr.pop(0)
+        print('pop: ', last_num)
+        total = 1
+        for i in range(len(arr)):
+            total = total * arr[i]
+        new_arr.append(total)
+    return new_arr
 
 
 
